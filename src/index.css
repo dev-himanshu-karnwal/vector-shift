@@ -1,13 +1,43 @@
+@import './styles/tokens.css';
+@import './styles/app.css';
+@import './styles/nodes.css';
+@import './styles/reactflow-overrides.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  overflow: hidden;
+  font-family: var(--vs-font-sans);
+  font-size: var(--vs-text-body-md);
+  line-height: 1.6;
+  color: var(--vs-text-primary);
+  background: var(--vs-bg-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+code,
+pre {
+  font-family: var(--vs-font-mono);
+}
+
+button {
+  font-family: inherit;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
 }

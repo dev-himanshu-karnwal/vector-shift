@@ -1,17 +1,29 @@
 // toolbar.js
 
 import { DraggableNode } from './draggableNode';
-import { nodeRegistry } from './nodes';
+import { nodeRegistry, nodeGroups } from './nodes';
 
 export const PipelineToolbar = () => {
+  return (
+    <aside className="node-panel">
+      <p className="node-panel__title">Nodes</p>
+      <div className="node-panel__groups">
+        {nodeGroups.map((group) => {
+          const nodes = nodeRegistry.filter((node) => node.group === group.id);
+          if (nodes.length === 0) return null;
 
-    return (
-        <div style={{ padding: '10px' }}>
-            <div style={{ marginTop: '20px', display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-                {nodeRegistry.map(({ type, label }) => (
-                    <DraggableNode key={type} type={type} label={label} />
+          return (
+            <section key={group.id} className="node-group">
+              <p className="node-group__label">{group.label}</p>
+              <div className="node-group__list">
+                {nodes.map(({ type, label }) => (
+                  <DraggableNode key={type} type={type} label={label} />
                 ))}
-            </div>
-        </div>
-    );
+              </div>
+            </section>
+          );
+        })}
+      </div>
+    </aside>
+  );
 };

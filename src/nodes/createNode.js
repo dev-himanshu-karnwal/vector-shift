@@ -11,7 +11,11 @@ const resolveDefaultValue = (field, id, data) => {
 const renderFieldInput = (field, value, onChange) => {
   if (field.type === 'select') {
     return (
-      <select value={value} onChange={onChange}>
+      <select
+        className="vs-node__select"
+        value={value}
+        onChange={onChange}
+      >
         {field.options.map((option) => {
           const optionValue =
             typeof option === 'object' ? option.value : option;
@@ -30,6 +34,7 @@ const renderFieldInput = (field, value, onChange) => {
   if (field.type === 'textarea') {
     return (
       <textarea
+        className="vs-node__textarea"
         value={value}
         onChange={onChange}
         rows={field.rows ?? 3}
@@ -40,6 +45,7 @@ const renderFieldInput = (field, value, onChange) => {
 
   return (
     <input
+      className="vs-node__input"
       type={field.type || 'text'}
       value={value}
       onChange={onChange}
@@ -72,10 +78,10 @@ export function createNode({
     };
 
     const renderFields = () => (
-      <div>
+      <div className="vs-node__fields">
         {fields.map((field) => (
-          <label key={field.name}>
-            {field.label}:
+          <label key={field.name} className="vs-node__field">
+            <span className="vs-node__field-label">{field.label}</span>
             {renderFieldInput(
               field,
               fieldValues[field.name],
@@ -89,7 +95,11 @@ export function createNode({
     const content = (
       <>
         {fields.length > 0 && renderFields()}
-        {render?.({ id, data, values: fieldValues, setField })}
+        {render && (
+          <div className="vs-node__content">
+            {render({ id, data, values: fieldValues, setField })}
+          </div>
+        )}
       </>
     );
 

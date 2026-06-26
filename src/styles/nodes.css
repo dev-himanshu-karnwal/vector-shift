@@ -1,0 +1,97 @@
+.vs-node {
+  display: flex;
+  flex-direction: column;
+  background: var(--vs-node-bg);
+  border: var(--vs-border-default);
+  border-radius: var(--vs-radius-md);
+  box-shadow: var(--vs-shadow-subtle);
+  overflow: hidden;
+  font-family: var(--vs-font-sans);
+}
+
+.vs-node__is-selected .vs-node,
+.react-flow__node.selected .vs-node {
+  border-color: var(--vs-node-selected);
+}
+
+.vs-node__header {
+  padding: var(--vs-space-3) var(--vs-space-4);
+  background: var(--vs-off-white);
+  border-bottom: var(--vs-border-default);
+}
+
+.vs-node__title {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--vs-text-secondary);
+}
+
+.vs-node__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vs-space-2);
+  padding: var(--vs-space-3) var(--vs-space-4);
+  font-size: var(--vs-text-body-sm);
+  color: var(--vs-text-secondary);
+  line-height: 1.55;
+}
+
+.vs-node__fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vs-space-3);
+}
+
+.vs-node__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vs-space-1);
+}
+
+.vs-node__field-label {
+  font-size: var(--vs-text-label);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vs-text-muted);
+}
+
+.vs-node__input,
+.vs-node__select,
+.vs-node__textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--vs-space-2) var(--vs-space-3);
+  border: var(--vs-border-default);
+  border-radius: var(--vs-radius-sm);
+  background: var(--vs-bg-primary);
+  color: var(--vs-text-primary);
+  font-family: var(--vs-font-mono);
+  font-size: 12px;
+  line-height: 1.4;
+  transition: border-color var(--vs-transition-fast);
+}
+
+.vs-node__input:focus,
+.vs-node__select:focus,
+.vs-node__textarea:focus {
+  outline: none;
+  border-color: var(--vs-border-strong);
+}
+
+.vs-node__textarea {
+  resize: vertical;
+  min-height: 56px;
+}
+
+.vs-node__select {
+  font-family: var(--vs-font-sans);
+  cursor: pointer;
+}
+
+.vs-node__content {
+  font-size: var(--vs-text-body-sm);
+  color: var(--vs-text-tertiary);
+}

@@ -1,0 +1,78 @@
+.react-flow__background {
+  background: var(--vs-canvas-bg);
+}
+
+.canvas-wrapper .react-flow {
+  width: 100%;
+  height: 100%;
+}
+
+.react-flow__edge-path {
+  stroke: var(--vs-edge-line);
+  stroke-width: 1.5;
+}
+
+.react-flow__edge.selected .react-flow__edge-path,
+.react-flow__edge:hover .react-flow__edge-path {
+  stroke: var(--vs-edge-active);
+}
+
+.react-flow__connection-path {
+  stroke: var(--vs-edge-active);
+  stroke-width: 1.5;
+}
+
+.react-flow__handle {
+  width: 8px;
+  height: 8px;
+  background: var(--vs-port-color);
+  border: 1px solid var(--vs-port-color);
+  transition: background var(--vs-transition-fast),
+    border-color var(--vs-transition-fast);
+}
+
+.react-flow__handle:hover,
+.react-flow__handle.connecting,
+.react-flow__handle.valid {
+  background: var(--vs-port-active);
+  border-color: var(--vs-port-active);
+}
+
+.react-flow__controls {
+  border: var(--vs-border-default);
+  border-radius: var(--vs-radius-none);
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.react-flow__controls-button {
+  width: 28px;
+  height: 28px;
+  border-bottom: var(--vs-border-default);
+  background: var(--vs-bg-primary);
+  fill: var(--vs-mid-gray);
+  transition: background var(--vs-transition-fast);
+}
+
+.react-flow__controls-button:hover {
+  background: var(--vs-off-white);
+}
+
+.react-flow__controls-button:last-child {
+  border-bottom: none;
+}
+
+.react-flow__minimap {
+  border: var(--vs-border-default);
+  border-radius: var(--vs-radius-none);
+  background: var(--vs-bg-primary);
+}
+
+.react-flow__minimap-mask {
+  fill: rgba(245, 244, 240, 0.7);
+}
+
+.react-flow__minimap-node {
+  fill: var(--vs-border-strong);
+  stroke: none;
+}

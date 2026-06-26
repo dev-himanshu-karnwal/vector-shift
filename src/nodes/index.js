@@ -9,15 +9,22 @@ import { NoteNode } from './noteNode';
 import { ConditionNode } from './conditionNode';
 
 export const nodeRegistry = [
-  { type: 'customInput', label: 'Input', component: InputNode },
-  { type: 'llm', label: 'LLM', component: LLMNode },
-  { type: 'customOutput', label: 'Output', component: OutputNode },
-  { type: 'text', label: 'Text', component: TextNode },
-  { type: 'filter', label: 'Filter', component: FilterNode },
-  { type: 'delay', label: 'Delay', component: DelayNode },
-  { type: 'merge', label: 'Merge', component: MergeNode },
-  { type: 'note', label: 'Note', component: NoteNode },
-  { type: 'condition', label: 'Condition', component: ConditionNode },
+  { type: 'customInput', label: 'Input', component: InputNode, group: 'io' },
+  { type: 'customOutput', label: 'Output', component: OutputNode, group: 'io' },
+  { type: 'llm', label: 'LLM', component: LLMNode, group: 'core' },
+  { type: 'text', label: 'Text', component: TextNode, group: 'core' },
+  { type: 'filter', label: 'Filter', component: FilterNode, group: 'logic' },
+  { type: 'condition', label: 'Condition', component: ConditionNode, group: 'logic' },
+  { type: 'delay', label: 'Delay', component: DelayNode, group: 'logic' },
+  { type: 'merge', label: 'Merge', component: MergeNode, group: 'logic' },
+  { type: 'note', label: 'Note', component: NoteNode, group: 'utility' },
+];
+
+export const nodeGroups = [
+  { id: 'io', label: 'Input / Output' },
+  { id: 'core', label: 'Core' },
+  { id: 'logic', label: 'Logic' },
+  { id: 'utility', label: 'Utility' },
 ];
 
 export const nodeTypes = Object.fromEntries(

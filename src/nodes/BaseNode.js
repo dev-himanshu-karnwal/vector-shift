@@ -1,7 +1,5 @@
 import { Handle, Position } from 'reactflow';
 
-const DEFAULT_STYLE = { width: 200, height: 80, border: '1px solid black' };
-
 const resolvePosition = (position) =>
   position === 'left' || position === Position.Left ? Position.Left : Position.Right;
 
@@ -14,11 +12,15 @@ export const BaseNode = ({
   handles = [],
   children,
 }) => {
-  const leftHandles = handles.filter((h) => resolvePosition(h.position) === Position.Left);
-  const rightHandles = handles.filter((h) => resolvePosition(h.position) === Position.Right);
+  const leftHandles = handles.filter(
+    (h) => resolvePosition(h.position) === Position.Left
+  );
+  const rightHandles = handles.filter(
+    (h) => resolvePosition(h.position) === Position.Right
+  );
 
   return (
-    <div style={{ ...DEFAULT_STYLE, width, height, ...style }}>
+    <div className="vs-node" style={{ width, minHeight: height, ...style }}>
       {leftHandles.map((handle) => (
         <Handle
           key={handle.id}
@@ -28,10 +30,10 @@ export const BaseNode = ({
           style={handle.style}
         />
       ))}
-      <div>
-        <span>{title}</span>
+      <div className="vs-node__header">
+        <span className="vs-node__title">{title}</span>
       </div>
-      {children}
+      <div className="vs-node__body">{children}</div>
       {rightHandles.map((handle) => (
         <Handle
           key={handle.id}

@@ -1,0 +1,73 @@
+:root {
+  /* Colors */
+  --vs-black: #0a0a0a;
+  --vs-near-black: #111111;
+  --vs-dark-gray: #1a1a1a;
+  --vs-mid-gray: #4a4a4a;
+  --vs-soft-gray: #6b6b6b;
+  --vs-light-gray: #9a9a9a;
+  --vs-border: #e8e8e8;
+  --vs-border-strong: #d4d4d4;
+  --vs-off-white: #f5f4f0;
+  --vs-near-white: #fafaf8;
+  --vs-white: #ffffff;
+
+  /* Semantic */
+  --vs-bg-primary: #ffffff;
+  --vs-bg-secondary: #f5f4f0;
+  --vs-bg-tertiary: #fafaf8;
+  --vs-bg-inverse: #0a0a0a;
+  --vs-text-primary: #0a0a0a;
+  --vs-text-secondary: #4a4a4a;
+  --vs-text-tertiary: #6b6b6b;
+  --vs-text-muted: #9a9a9a;
+  --vs-text-on-dark: #ffffff;
+  --vs-text-on-dark-muted: #a0a0a0;
+
+  /* Canvas / nodes */
+  --vs-canvas-bg: #f5f4f0;
+  --vs-node-bg: #ffffff;
+  --vs-node-border: #e8e8e8;
+  --vs-node-selected: #0a0a0a;
+  --vs-edge-line: #c8c8c8;
+  --vs-edge-active: #4a4a4a;
+  --vs-port-color: #d4d4d4;
+  --vs-port-active: #0a0a0a;
+
+  /* Typography */
+  --vs-font-sans: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    system-ui, sans-serif;
+  --vs-font-serif: 'Newsreader', Georgia, 'Times New Roman', Times, serif;
+  --vs-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, monospace;
+
+  /* Type scale */
+  --vs-text-body-lg: 16px;
+  --vs-text-body-md: 14px;
+  --vs-text-body-sm: 13px;
+  --vs-text-heading-sm: 18px;
+  --vs-text-label: 11px;
+
+  /* Spacing */
+  --vs-space-1: 4px;
+  --vs-space-2: 8px;
+  --vs-space-3: 12px;
+  --vs-space-4: 16px;
+  --vs-space-5: 20px;
+  --vs-space-6: 24px;
+  --vs-space-8: 32px;
+
+  /* Borders & radius */
+  --vs-border-default: 1px solid var(--vs-border);
+  --vs-border-strong-rule: 1px solid var(--vs-border-strong);
+  --vs-radius-none: 0px;
+  --vs-radius-sm: 3px;
+  --vs-radius-md: 4px;
+
+  /* Shadows */
+  --vs-shadow-subtle: 0 1px 4px rgba(0, 0, 0, 0.06);
+
+  /* Motion */
+  --vs-transition-fast: 100ms ease;
+  --vs-transition-default: 150ms ease;
+}

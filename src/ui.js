@@ -10,8 +10,14 @@ import { nodeTypes } from './nodes';
 
 import 'reactflow/dist/style.css';
 
-const gridSize = 20;
+const gridSize = 24;
 const proOptions = { hideAttribution: true };
+
+const defaultEdgeOptions = {
+  type: 'smoothstep',
+  animated: true,
+  style: { stroke: '#C8C8C8', strokeWidth: 1.5 },
+};
 
 const selector = (state) => ({
   nodes: state.nodes,
@@ -71,7 +77,7 @@ export const PipelineUI = () => {
             addNode(newNode);
           }
         },
-        [reactFlowInstance]
+        [reactFlowInstance, addNode, getNodeID]
     );
 
     const onDragOver = useCallback((event) => {
@@ -81,7 +87,7 @@ export const PipelineUI = () => {
 
     return (
         <>
-        <div ref={reactFlowWrapper} style={{width: '100wv', height: '70vh'}}>
+        <div ref={reactFlowWrapper} className="canvas-wrapper">
             <ReactFlow
                 nodes={nodes}
                 edges={edges}
@@ -95,8 +101,9 @@ export const PipelineUI = () => {
                 proOptions={proOptions}
                 snapGrid={[gridSize, gridSize]}
                 connectionLineType='smoothstep'
+                defaultEdgeOptions={defaultEdgeOptions}
             >
-                <Background color="#aaa" gap={gridSize} />
+                <Background variant="dots" color="#D4D4D4" gap={gridSize} size={1} />
                 <Controls />
                 <MiniMap />
             </ReactFlow>
