@@ -5,8 +5,8 @@ export const DelayNode = createNode({
   title: 'Delay',
   height: 100,
   handles: [
-    { type: 'target', position: Position.Left, id: 'input' },
-    { type: 'source', position: Position.Right, id: 'output' },
+    { type: 'target', position: Position.Left, id: 'input', label: 'Input' },
+    { type: 'source', position: Position.Right, id: 'output', label: 'Output' },
   ],
   fields: [
     {

@@ -1,7 +1,27 @@
 import { Handle, Position } from 'reactflow';
+import { formatHandleLabel } from './handleUtils';
 
-const resolvePosition = (position) =>
-  position === 'left' || position === Position.Left ? Position.Left : Position.Right;
+const HandleWithLabel = ({ nodeId, handle, side }) => {
+  const label = handle.label ?? formatHandleLabel(handle.id);
+  const top = handle.style?.top ?? '50%';
+  const isLeft = side === 'left';
+
+  return (
+    <div
+      className={`vs-handle-slot vs-handle-slot--${side}`}
+      style={{ top }}
+    >
+      <Handle
+        type={handle.type}
+        position={isLeft ? Position.Left : Position.Right}
+        id={`${nodeId}-${handle.id}`}
+        title={label}
+        aria-label={label}
+      />
+      <span className="vs-handle-slot__label">{label}</span>
+    </div>
+  );
+};
 
 export const BaseNode = ({
   id,
@@ -11,23 +31,30 @@ export const BaseNode = ({
   style,
   handles = [],
   children,
+  autoSize = false,
 }) => {
   const leftHandles = handles.filter(
-    (h) => resolvePosition(h.position) === Position.Left
+    (h) => h.position === 'left' || h.position === Position.Left
   );
   const rightHandles = handles.filter(
-    (h) => resolvePosition(h.position) === Position.Right
+    (h) => h.position === 'right' || h.position === Position.Right
   );
 
+  const sizeStyle = autoSize
+    ? { width: 'max-content', height: 'auto', minHeight: 'unset' }
+    : { width, minHeight: height };
+
   return (
-    <div className="vs-node" style={{ width, minHeight: height, ...style }}>
+    <div
+      className={`vs-node${autoSize ? ' vs-node--auto-size' : ''}`}
+      style={{ ...sizeStyle, ...style }}
+    >
       {leftHandles.map((handle) => (
-        <Handle
+        <HandleWithLabel
           key={handle.id}
-          type={handle.type}
-          position={Position.Left}
-          id={`${id}-${handle.id}`}
-          style={handle.style}
+          nodeId={id}
+          handle={handle}
+          side="left"
         />
       ))}
       <div className="vs-node__header">
@@ -35,12 +62,11 @@ export const BaseNode = ({
       </div>
       <div className="vs-node__body">{children}</div>
       {rightHandles.map((handle) => (
-        <Handle
+        <HandleWithLabel
           key={handle.id}
-          type={handle.type}
-          position={Position.Right}
-          id={`${id}-${handle.id}`}
-          style={handle.style}
+          nodeId={id}
+          handle={handle}
+          side="right"
         />
       ))}
     </div>

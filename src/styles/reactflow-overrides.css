@@ -7,6 +7,10 @@
   height: 100%;
 }
 
+.react-flow__node {
+  overflow: visible;
+}
+
 .react-flow__edge-path {
   stroke: var(--vs-edge-line);
   stroke-width: 1.5;
@@ -22,20 +26,28 @@
   stroke-width: 1.5;
 }
 
+.react-flow__node:has(.vs-node--auto-size) {
+  width: auto !important;
+  height: auto !important;
+}
+
 .react-flow__handle {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   background: var(--vs-port-color);
-  border: 1px solid var(--vs-port-color);
+  border: 2px solid var(--vs-white);
+  box-shadow: 0 0 0 1px var(--vs-border-strong);
   transition: background var(--vs-transition-fast),
-    border-color var(--vs-transition-fast);
+    border-color var(--vs-transition-fast),
+    box-shadow var(--vs-transition-fast);
 }
 
 .react-flow__handle:hover,
 .react-flow__handle.connecting,
 .react-flow__handle.valid {
   background: var(--vs-port-active);
-  border-color: var(--vs-port-active);
+  border-color: var(--vs-white);
+  box-shadow: 0 0 0 1px var(--vs-port-active);
 }
 
 .react-flow__controls {

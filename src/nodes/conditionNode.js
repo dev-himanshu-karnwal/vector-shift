@@ -5,17 +5,19 @@ export const ConditionNode = createNode({
   title: 'Condition',
   height: 100,
   handles: [
-    { type: 'target', position: Position.Left, id: 'input' },
+    { type: 'target', position: Position.Left, id: 'input', label: 'Input' },
     {
       type: 'source',
       position: Position.Right,
       id: 'true',
+      label: 'True',
       style: { top: '35%' },
     },
     {
       type: 'source',
       position: Position.Right,
       id: 'false',
+      label: 'False',
       style: { top: '65%' },
     },
   ],

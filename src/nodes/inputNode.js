@@ -3,7 +3,7 @@ import { createNode } from './createNode';
 
 export const InputNode = createNode({
   title: 'Input',
-  handles: [{ type: 'source', position: Position.Right, id: 'value' }],
+  handles: [{ type: 'source', position: Position.Right, id: 'value', label: 'Value' }],
   fields: [
     {
       name: 'inputName',

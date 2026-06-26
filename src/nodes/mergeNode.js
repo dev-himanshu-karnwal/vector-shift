@@ -5,10 +5,10 @@ export const MergeNode = createNode({
   title: 'Merge',
   height: 120,
   handles: [
-    { type: 'target', position: Position.Left, id: 'a', style: { top: '25%' } },
-    { type: 'target', position: Position.Left, id: 'b', style: { top: '50%' } },
-    { type: 'target', position: Position.Left, id: 'c', style: { top: '75%' } },
-    { type: 'source', position: Position.Right, id: 'merged' },
+    { type: 'target', position: Position.Left, id: 'a', label: 'Input A', style: { top: '25%' } },
+    { type: 'target', position: Position.Left, id: 'b', label: 'Input B', style: { top: '50%' } },
+    { type: 'target', position: Position.Left, id: 'c', label: 'Input C', style: { top: '75%' } },
+    { type: 'source', position: Position.Right, id: 'merged', label: 'Merged' },
   ],
   fields: [
     {

@@ -3,7 +3,7 @@ import { createNode } from './createNode';
 
 export const OutputNode = createNode({
   title: 'Output',
-  handles: [{ type: 'target', position: Position.Left, id: 'value' }],
+  handles: [{ type: 'target', position: Position.Left, id: 'value', label: 'Value' }],
   fields: [
     {
       name: 'outputName',

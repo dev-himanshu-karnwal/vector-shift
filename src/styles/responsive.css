@@ -188,6 +188,12 @@
     height: 36px;
   }
 
+  .vs-handle-slot__label {
+    opacity: 1;
+    font-size: 9px;
+    padding: 1px 4px;
+  }
+
   .vs-node__input,
   .vs-node__select,
   .vs-node__textarea {
